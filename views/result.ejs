@@ -50,8 +50,8 @@
 
     <!-- main container -->
     <div class="container mt-5">
-     <% if(commonRestaurants.length > 0) { %>
       <h3>You both prefer these Restaurants</h3>
+      <% if(commonRestaurants.length > 0) { %>
       <div class="restaurant my-5">
         <div class="row row-cols-4">
         <% for(let i=0; i<commonRestaurants.length; i++){ %>
@@ -78,8 +78,12 @@
           </div>
         <% } %>
         </div>
-     </div>
-     <% } %>
+      </div>
+      <% }else { %>
+        <div class="alert alert-danger" role="alert">
+          Sorry!! There is no common choice for restaurants.
+        </div>
+      <% } %>
 
      <% if(commonFoodRestaurants.length >0){ %>
      <h3>Restaurants in which you both get your selected cuisines</h3>
@@ -113,7 +117,9 @@
      <% } %>
 
      <% if(commonFoodRestaurants.length == 0 && commonRestaurants.length ==0){ %>
-      <h3>Sorry!! Unfortunately we can't find any similar choice restaurants for you</h3>
+      <div class="alert alert-danger" role="alert">
+        Sorry!! Unfortunately we can't find any similar choice restaurants for you
+      </div>
       <% } %>
     </div>
 
